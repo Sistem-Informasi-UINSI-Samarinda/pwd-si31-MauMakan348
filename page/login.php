@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include '../config/koneksi.php';
+$error = "";
 ?>
 
 <!DOCTYPE html>
@@ -9,14 +10,16 @@ include '../config/koneksi.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
+
 <body>
     <?php 
     if(isset($_POST['login'])){
         $input = $_POST['username'];
         $password = $_POST['password'];
 
-        // Cek Input ke database apakah sudah sesuai atau belum dengan data yg ada
+        // Cek Input ke database
         if(filter_var($input, FILTER_VALIDATE_EMAIL)){
             $query = "SELECT * FROM users WHERE email ='$input'";
         } else {
@@ -32,31 +35,38 @@ include '../config/koneksi.php';
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['nama_lengkap'] = $row['nama_lengkap'];
                 $_SESSION['username'] = $row['username'];
-
-                // arahkan ke admin
-                header("Location: dashboard.php");
+                header("Location: admin/index.php");
                 exit();
             }
             else {
-                echo "<p style='color: red'> Password Salah</p>";
+                $error="Password Salah";
             }
         }
         else{
-            echo "<p style='color: red'> Username/email tidak sesuai</p>";
+            $error="Username/email tidak sesuai";
         }
     }
     ?>
 
+    <a href="../index.php" class="backlogin">Kembali</a>
+
     <form method="post" action="">
+        <h2>Login kan dulu lee</h2><br>
         <label>Username atau Email</label> <br> 
         <input type="text" name="username" placeholder="Masukkan Username Email" required> <br>
 
         <label>Password</label> <br>
-        <input type="password" name="password" placeholder="Masukkan Password" required> <br>
-        <br>
+        <input type="password" name="password" placeholder="Masukkan Password" required>
+        <?php if( $error != ""): ?>
+        <p style="color:red; margin: -10px 0 5px 0; font-size: 14px;"><?= $error ?></p>
+        <?php endif; ?>
+        <br><br>
 
-        <button type="submit" name="login">Login</button>
+        <button type="submit" name="login">Login</button><br>
+        <a href="register.php">Belum punya akun?</a>
     </form>
-    
+    <script src="../assets/js/register.js"></script>
+
+    <img src="../assets/gambar/agnes-cafe.gif" class="bglogin"/>
 </body>
 </html>
