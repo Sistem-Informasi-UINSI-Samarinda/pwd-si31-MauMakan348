@@ -16,8 +16,8 @@
         <li><input type="checkbox" id="burgir-menu"><label for="burgir-menu" class="noburgir">&times</label></li>
         <li><a href="index.php">Beranda</a></li>
         <li><a href="kudabalap.php">KudaBalap</a></li>
-        <li><a href="#">ArenaBalap</a></li>
-        <li><a href="#">CeritaBalap</a></li>
+        <li><a href="arenabalap.php">ArenaBalap</a></li>
+        <li><a href="sejarahbalap.php">SejarahBalap</a></li>
       </ul>
     </nav>
     <!-- navigasi done -->

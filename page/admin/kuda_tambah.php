@@ -45,7 +45,61 @@ if (isset($_POST['submit'])) {
             <a href="kudakan.php">Kembali</a>
         </header>
 
-        <section class="body-tmbhkuda">
+        <section>
+            <div class="edtkuda-kontener">
+            
+                <h2>Tambah Data Kuda</h2>
+                
+                <form method="POST" enctype="multipart/form-data">
+
+                    <div class="kudaedt-grid">
+
+                    <div class="kudaedt-kiri">
+                        <label>Nama kuda:</label>
+                        <input type="text" name="nama_kuda" required>
+
+                        <label>Tanggal lahir:</label>
+                        <input type="date" name="tanggal_lahir" class="input-date">
+
+                        <label>Jenis kelamin:</label>
+                        <select name="jenis_kelamin">
+                            <option value="Jantan">Jantan</option>
+                            <option value="Betina">Betina</option>
+                        </select>
+
+                        <label>Peternakan:</label>
+                        <input type="text" name="peternakan" required>
+                    </div>
+
+                        <div class="kudaedt-kanan">
+                            <label>Preview Foto:</label>
+                            <img id="previewImage" class="kudaedt-foto"><br>
+
+                            <label>Upload foto:</label>
+                            <input type="file" name="foto_kuda" id="fotoInput" accept="image/*">
+                        </div>
+
+                    </div>
+                
+                    <button type="submit" name="submit">Simpan</button>
+
+                </form>
+            </div>
+        </section>
+
+<script>
+    document.getElementById('fotoInput').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    const preview = document.getElementById('previewImage');
+
+    if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = 'block';
+    }
+    });
+</script>
+
+        <!-- <section class="body-tmbhkuda">
             <form method="POST" enctype="multipart/form-data" class="tmbhkuda_kontainer">
                <h2>Tambahkan Data Kuda</h2>
                 <div class="tmbhkuda_grup">
@@ -79,7 +133,7 @@ if (isset($_POST['submit'])) {
         <div class="bgtmbhkuda">
             <img src="../../assets/gambar/doto-music.gif" style="transform: scaleX(-1);">
             <img src="../../assets/gambar/opera-music.gif">
-        </div>
+        </div> -->
 
     </div>
     
