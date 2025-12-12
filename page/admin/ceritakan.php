@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 include '../../config/koneksi.php';
 if (!isset($_SESSION['user_id'])) {
@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 ?>
 
- <?php include 'includes-admin/admin-meta.php'; ?>
+<?php include 'includes-admin/admin-meta.php'; ?>
  <?php include 'includes-admin/admin-sidebar.php'; ?>
 
 

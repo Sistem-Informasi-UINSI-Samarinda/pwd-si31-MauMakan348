@@ -202,13 +202,6 @@ td {
   background-color: #fff;
   box-sizing: border-box;
 }
-/* .edtkuda-kontener input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  opacity: 0.6;
-}
-.edtkuda-kontener input[type="date"]::-webkit-calendar-picker-indicator:hover {
-  opacity: 1;
-} */
 .btn-kuda1 {
   width: 100%;
   background: #b30000;
@@ -244,7 +237,6 @@ td {
   right: 0;
   bottom: 0;
   width: 35%;
-  /* opacity: 0.5; */
   z-index: -1;
   pointer-events: none;
 }

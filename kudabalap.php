@@ -13,7 +13,7 @@
         <img src="uploads/kuda/<?= $row['foto_kuda']; ?>">
         <h3><?= $row['nama_kuda']; ?></h3>
 
-        <p>Lahir: <?= $row['tanggal_lahir']; ?></p>
+        <p>Lahir: <?= !empty($row['tanggal_lahir']) && $row['tanggal_lahir'] !='0000-00-00' ? $row['tanggal_lahir'] : '-'; ?></p>
         <p>Jenis kelamin: <?= $row['jenis_kelamin']; ?></p>
         <p>Peternakan: <?= $row['peternakan']; ?></p>
         </div>

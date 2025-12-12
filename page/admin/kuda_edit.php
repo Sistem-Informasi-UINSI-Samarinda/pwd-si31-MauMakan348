@@ -55,24 +55,8 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<h lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Kuda</title>
-    <link rel="stylesheet" href="../../assets/css/adminstyle.css">
-</head>
-
-<body class="body-utama">
-    <div class="sidebar">
-        <h2>Adminkan Kuda</h2>
-        <li><a href="index.php">Inpokan</a></li>
-        <li><a href="kudakan.php">Kudakan</a></li>
-        <li><a href="arenakan.php">Arenakan</a></li>
-        <li><a href="ceritakan.php">Ceritakan</a></li>
-        <li><a href="logout.php" class="logout">Logout</a></li>
-    </div>
+ <?php include 'includes-admin/admin-meta.php'; ?>
+ <?php include 'includes-admin/admin-sidebar.php'; ?>
 
     <div class="main-content-edit">
         <header class="kudakan1-edit">
@@ -91,7 +75,7 @@ if (isset($_POST['submit'])) {
                             <label> Nama kuda:</label>
                             <input type="text" name="nama_kuda" value="<?= $data['nama_kuda']; ?>">
                             <label>Tanggal lahir:</label>
-                            <input type="text" name="tanggal_lahir" value="<?= $data['tanggal_lahir']; ?>">
+                            <input type="date" name="tanggal_lahir" class="input-date" value="<?= $data['tanggal_lahir']; ?>">
                             <label>Jenis kelamin:</label>
                             <select name="jenis_kelamin">
                                 <option <?= $data['jenis_kelamin'] == 'Jantan' ? 'selected' : '' ?>>Jantan</option>
@@ -117,5 +101,4 @@ if (isset($_POST['submit'])) {
         </section>
     </div>
 
-</body>
-</html>
+ <?php include 'includes-admin/admin-footer.php'; ?>
